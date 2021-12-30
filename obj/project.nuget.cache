@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "cRB9kxM251o2k+AUxNWGDf90maWPZvfd8MGDUthL/xDP4QUDotG6gqmAhJZ30mpZS8xRJtoT3iftYbgh1Xt7Sg==",
+  "success": true,
+  "projectFilePath": "E:\\Programming\\FSharp\\tictactoe\\tictactoe.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Virgile\\.nuget\\packages\\fsharp.core\\6.0.1\\fsharp.core.6.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
