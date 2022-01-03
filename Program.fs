@@ -78,6 +78,7 @@ let ChangeIndex value index matrix =
     List.mapi (fun i x -> if i = index then value else x) matrix
 
 let PrintWin player matrix =
+    Console.Clear ()
     printfn "Congratulations to player %i who has won!" player
     PrintMatrix matrix
 
@@ -87,17 +88,20 @@ let PrintDraw () =
 let rec GameLoop turn matrix =
     Console.Clear ()
     let player = 2 - (turn % 2)
-    PrintMatrix matrix
     printfn "Player %i's turn" player
+    PrintMatrix matrix
     let index = GetIndex matrix
     let newMatrix = ChangeIndex player index matrix
     if HasWon player newMatrix then PrintWin player newMatrix
     elif not (List.contains 0 newMatrix) then PrintDraw ()
     else GameLoop (turn+1) newMatrix
 
-let matrix = [for _ in 0..8 do yield 0]
-let turn = 1
-printfn "Welcome!\nThis is a game of noughts and crosses.\nPlease decide between yourselves who is player 1 and player 2.\nPress [Enter] to continue."
-Console.ReadLine () |> ignore
-GameLoop turn matrix
-Console.ReadLine () |> ignore
+[<EntryPoint>]
+let main _ =
+    let matrix = [for _ in 0..8 do yield 0]
+    let turn = 1
+    printfn "Welcome!\nThis is a game of noughts and crosses.\nPlease decide between yourselves who is player 1 and player 2.\nPress [Enter] to continue."
+    Console.ReadLine () |> ignore
+    GameLoop turn matrix
+    Console.ReadLine () |> ignore
+    0
